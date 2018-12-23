@@ -7,7 +7,8 @@
 const fs = require('fs')
 
 const opts = {
-    mode: 'showDuplicates', // rmDuplicates
+    mode: 'rmDuplicates',
+
     magicPath: '/home/gabriel/Images/**/*'
 }
 
@@ -45,8 +46,15 @@ const modes = {
         })
     },
     rmDuplicates: () => {
-        console.log('rmDuplicates')
+        const files = require('./duplicates')
+        files.forEach(file => {
+            if (file.duplicate) {
+                fs.unlinkSync( file.path, () => {
+                    console.log( `Removing $(file.path)` ); // 0-1812-ddf-sm.jpeg
+                })
+            }
+        })
     }
 }
 
-mode[opts.mode]
+modes[opts.mode]()
