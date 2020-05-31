@@ -1,1 +1,30 @@
-[]
+[
+  {
+    "path": "/home/gab/test/dd",
+    "fileName": "dd",
+    "size": 4096,
+    "duplicate": false,
+    "isDirectory": true
+  },
+  {
+    "path": "/home/gab/test/dd/DuplicatesDeletion.py",
+    "fileName": "DuplicatesDeletion.py",
+    "size": 5939,
+    "duplicate": false,
+    "isDirectory": false
+  },
+  {
+    "path": "/home/gab/test/DuplicatesDeletion.py",
+    "fileName": "DuplicatesDeletion.py",
+    "size": 5939,
+    "duplicate": true,
+    "isDirectory": false
+  },
+  {
+    "path": "/home/gab/test/FindDuplicates.py",
+    "fileName": "FindDuplicates.py",
+    "size": 2889,
+    "duplicate": false,
+    "isDirectory": false
+  }
+]

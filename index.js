@@ -34,7 +34,8 @@ const modes = {
                         path: file,
                         fileName: file.match( regex() )[0],
                         size: getFilesizeInBytes(file),
-                        duplicate: false
+                        duplicate: false,
+                        isDirectory: fs.lstatSync(file).isDirectory()
                     }
                 )
             })
@@ -51,7 +52,7 @@ const modes = {
             })
             fs.writeFileSync( 'duplicates.json', JSON.stringify( files, null, 2 ), 'utf8')
 
-            const duplicates = files.filter(f => f.duplicate).map(f=>f.path)
+            const duplicates = files.filter(f => f.duplicate && !f.isDirectory).map(f=>f.path)
 
             
 
@@ -64,9 +65,6 @@ const modes = {
                 duplicates
                 .forEach(f=>console.log(f))
             }
-
-
-            // console.log(duplicates);
             
         })
     },
