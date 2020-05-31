@@ -9,7 +9,7 @@ const fs = require('fs')
 const opts = {
     mode: 'showDuplicates',
 
-    magicPath: '/home/gabriel/**/*'
+    magicPath: '/home/gab/test/**/*'
 }
 
 const modes = {
@@ -50,6 +50,24 @@ const modes = {
                 }
             })
             fs.writeFileSync( 'duplicates.json', JSON.stringify( files, null, 2 ), 'utf8')
+
+            const duplicates = files.filter(f => f.duplicate).map(f=>f.path)
+
+            
+
+            if (!duplicates.length) {
+                console.log('No duplicate file found.');
+                
+            } else {
+                console.log('List of duplicate files founded:');
+
+                duplicates
+                .forEach(f=>console.log(f))
+            }
+
+
+            // console.log(duplicates);
+            
         })
     },
     rmDuplicates: () => {
