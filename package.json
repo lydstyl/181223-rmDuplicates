@@ -11,6 +11,6 @@
   "license": "ISC",
   "dependencies": {
     "filename-regex": "^2.0.1",
-    "glob": "^7.1.3"
+    "glob": "^13.0.6"
   }
 }
